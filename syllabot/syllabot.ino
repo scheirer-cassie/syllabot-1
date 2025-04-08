@@ -49,46 +49,41 @@ void doCorrectDance(leftEarServo, rightEarServo, leftArmServo, rightArmServo) {
   i = 0;
 
   while (1 < 3) {
-    leftEarServo.write(0);
-    rightEarServo.write(0);
-    leftArmServo.write(0);
-    rightArmServo.write(0);
+    leftEarServo.write(25);
+    rightEarServo.write(25);
+    leftArmServo.write(90);
+    rightArmServo.write(90);
     delay(250);
-    leftEarServo.write(180);
-    rightEarServo.write(180);
-    leftArmServo.write(180);
+    leftEarServo.write(75);
+    rightEarServo.write(75);
+    leftArmServo.write(0);
     rightArmServo.write(180);
     delay(250);
     i+=1;
   }
 
+  resetBody(leftEarServo, rightEarServo, leftArmServo, rightArmServo);
   
 }
 
 void doIncorrectDance(leftEarServo, rightEarServo, leftArmServo, rightArmServo) {
-  i = 0;
 
-  while (1 < 3) {
-    leftEarServo.write(0);
-    rightEarServo.write(0);
-    leftArmServo.write(0);
-    rightArmServo.write(0);
-    delay(250);
-    leftEarServo.write(180);
-    rightEarServo.write(180);
-    leftArmServo.write(180);
-    rightArmServo.write(180);
-    delay(250);
-    i+=1;
+  for (i = 0; i < 90; i++)
+    leftEarServo.write(90-i);
+    rightEarServo.write(90-i);
+    leftArmServo.write(90-i);
+    rightArmServo.write(90+i);
   }
+
+  resetBody(leftEarServo, rightEarServo, leftArmServo, rightArmServo);
   
 }
 
 void resetBody(leftEarServo, rightEarServo, leftArmServo, rightArmServo) {
-  leftEarServo.write(0);
-  rightEarServo.write(0);
-  leftArmServo.write(0);
-  rightArmServo.write(0);
+  leftEarServo.write(90);
+  rightEarServo.write(90);
+  leftArmServo.write(90);
+  rightArmServo.write(90);
 }
 
 
